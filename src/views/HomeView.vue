@@ -1,4 +1,8 @@
-<script lang="ts"></script>
+<script lang="ts">
+export default {
+  setup() {},
+};
+</script>
 
 <template>
   <main>
