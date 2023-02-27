@@ -1,16 +1,20 @@
-import { createRouter, createWebHistory } from "vue-router";
+import {
+  createRouter,
+  createWebHistory,
+  type RouteRecordRaw,
+} from "vue-router";
 import Layout from "@/layout/Layout.vue";
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "layout",
     component: Layout,
   },
   {
-    path: "/about",
-    name: "about",
-    component: () => import("../views/AboutView.vue"),
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/login/Login.vue"),
   },
 ];
 
