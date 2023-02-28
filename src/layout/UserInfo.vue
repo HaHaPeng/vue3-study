@@ -1,7 +1,7 @@
 <template>
   <el-dropdown>
     <span class="el-dropdown-link">
-      admin
+      {{ userInfo?.account }}
       <i class="el-icon-arrow-down el-icon--right" />
     </span>
     <template #dropdown>
@@ -13,6 +13,10 @@
   </el-dropdown>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { useLogin } from "@/stores/user";
+
+const { userInfo } = useLogin();
+</script>
 
 <style lang="scss" scoped></style>

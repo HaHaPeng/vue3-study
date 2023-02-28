@@ -4,29 +4,39 @@
     text-color="#bcc0c5"
     active-text-color="#2d8cf0"
     class="el-menu-vertical-demo"
-    default-active="2"
+    default-active="/order/list"
     router
   >
-    <el-sub-menu index="1">
+    <el-sub-menu index="/">
       <template #title>
         <el-icon><location /></el-icon>
-        <span>Navigator One</span>
+        <span>product</span>
       </template>
-      <el-menu-item-group title="Group One">
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-menu-item-group>
-      <el-menu-item-group title="Group Two">
-        <el-menu-item index="1-3">item three</el-menu-item>
-      </el-menu-item-group>
-      <el-sub-menu index="1-4">
-        <template #title>item four</template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
-      </el-sub-menu>
+      <el-menu-item index="/product/list">list</el-menu-item>
+      <el-menu-item index="/product/classify">classify</el-menu-item>
+      <el-menu-item index="/product/attribute">attribute</el-menu-item>
+      <el-menu-item index="/product/evaluate">evaluate</el-menu-item>
     </el-sub-menu>
-    <el-menu-item index="2">
+    <el-sub-menu index="/order">
+      <template #title>
+        <el-icon><location /></el-icon>
+        <span>order</span>
+      </template>
+      <el-menu-item index="/order/list">list</el-menu-item>
+      <el-menu-item index="/order/offline">offline</el-menu-item>
+    </el-sub-menu>
+    <el-sub-menu index="/permission">
+      <template #title>
+        <el-icon><location /></el-icon>
+        <span>permission</span>
+      </template>
+      <el-menu-item index="/permission/menu">menu</el-menu-item>
+      <el-menu-item index="/permission/role">role</el-menu-item>
+      <el-menu-item index="/permission/user">user</el-menu-item>
+    </el-sub-menu>
+    <el-menu-item index="/media">
       <el-icon><icon-menu /></el-icon>
-      <span>Navigator Two</span>
+      <span>media</span>
     </el-menu-item>
     <el-menu-item index="3" disabled>
       <el-icon><document /></el-icon>
