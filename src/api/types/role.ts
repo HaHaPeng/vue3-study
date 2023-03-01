@@ -1,4 +1,4 @@
-export interface Role {
+export interface IRole {
   id: number;
   role_name: string;
   rules: string;
@@ -14,13 +14,13 @@ export interface IListParams {
   role_name: string;
 }
 
-export interface RolePostData {
+export interface IRolePostData {
   role_name: string;
   status: 0 | 1;
   checked_menus: number[];
 }
 
-export interface EditRole {
+export interface IEditRole {
   id: number;
   level: number;
   role_name: string;
@@ -28,10 +28,10 @@ export interface EditRole {
   status: 0 | 1;
 }
 
-export interface Menu {
+export interface IMenu {
   pid: number;
   id: number;
   title: string;
   expand: boolean;
-  children?: Menu[];
+  children?: IMenu[];
 }

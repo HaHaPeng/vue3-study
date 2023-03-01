@@ -1,16 +1,16 @@
 import request from "@/utils/request";
 import type {
   IListParams,
-  Role,
-  RolePostData,
-  Menu,
-  EditRole,
+  IRole,
+  IRolePostData,
+  IMenu,
+  IEditRole,
 } from "../types/role";
 
 export const getRoles = (params: IListParams) => {
   return request<{
     count: number;
-    list: Role[];
+    list: IRole[];
   }>({
     method: "GET",
     url: "/setting/role",
@@ -18,7 +18,7 @@ export const getRoles = (params: IListParams) => {
   });
 };
 
-export const saveRole = (id: number, data: RolePostData) => {
+export const saveRole = (id: number, data: IRolePostData) => {
   return request({
     method: "POST",
     url: `/setting/role/${id}`,
@@ -42,8 +42,8 @@ export const updateRoleStatus = (id: number, status: 0 | 1) => {
 
 export const getRole = (id: number) => {
   return request<{
-    role: EditRole;
-    menus: Menu[];
+    role: IEditRole;
+    menus: IMenu[];
   }>({
     method: "GET",
     url: `/setting/role/${id}/edit`,
@@ -52,7 +52,7 @@ export const getRole = (id: number) => {
 
 export const getMenus = () => {
   return request<{
-    menus: Menu[];
+    menus: IMenu[];
   }>({
     method: "GET",
     url: "/setting/role/create",

@@ -97,11 +97,11 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import { getRoles, deleteRole, updateRoleStatus } from "@/api/permission/role";
-import type { IListParams, Role } from "@/api/types/role";
+import type { IListParams, IRole } from "@/api/types/role";
 import { ElMessage } from "element-plus";
 import RoleForm from "./RoleForm.vue";
 
-const list = ref<Role[]>([]); // 列表数据
+const list = ref<IRole[]>([]); // 列表数据
 const listCount = ref(0);
 const listLoading = ref(true);
 const listParams = reactive({
@@ -141,7 +141,7 @@ const handleDelete = async (id: number) => {
   loadList();
 };
 
-const handleStatusChange = async (item: Role) => {
+const handleStatusChange = async (item: IRole) => {
   item.statusLoading = true;
   await updateRoleStatus(item.id, item.status).finally(() => {
     item.statusLoading = false;

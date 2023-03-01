@@ -42,7 +42,7 @@ import type { PropType } from "vue";
 import type { IElForm, IElTree, IFormItemRule } from "@/types/element-plus";
 import { ElMessage } from "element-plus";
 import { getMenus, getRole, saveRole } from "@/api/permission/role";
-import type { Menu } from "@/api/types/role";
+import type { IMenu } from "@/api/types/role";
 
 const props = defineProps({
   roleId: {
@@ -66,7 +66,7 @@ const formData = ref({
   status: 0 as 0 | 1,
   checked_menus: [] as number[],
 });
-const menus = ref<Menu[]>([]); // 菜单列表
+const menus = ref<IMenu[]>([]); // 菜单列表
 
 const formRules: IFormItemRule = {
   role_name: [{ required: true, message: "请输入角色名称", trigger: "blur" }],
