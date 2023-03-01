@@ -1,6 +1,7 @@
 export const getItem = <T>(key: string) => {
   const data = window.sessionStorage.getItem(key);
   if (!data) return null;
+  if (!/{/g.test(data)) return data;
   try {
     return JSON.parse(data) as T;
   } catch {
