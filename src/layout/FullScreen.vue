@@ -1,5 +1,5 @@
 <template>
-  <i class="el-icon-full-screen" />
+  <i class="FullScreen" />
 </template>
 
 <script lang="ts" setup></script>

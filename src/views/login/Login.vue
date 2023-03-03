@@ -14,14 +14,14 @@
       <el-form-item prop="account">
         <el-input v-model="user.account" placeholder="请输入用户名">
           <template #prefix>
-            <i class="el-input__icon el-icon-user" />
+            <i class="el-input__icon User" />
           </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="pwd">
         <el-input v-model="user.pwd" type="password" placeholder="请输入密码">
           <template #prefix>
-            <i class="el-input__icon el-icon-lock" />
+            <i class="el-input__icon Lock" />
           </template>
         </el-input>
       </el-form-item>
@@ -29,7 +29,7 @@
         <div class="imgcode-wrap">
           <el-input v-model="user.imgcode" placeholder="请输入验证码">
             <template #prefix>
-              <i class="el-input__icon el-icon-key" />
+              <i class="el-input__icon Key" />
             </template>
           </el-input>
           <img

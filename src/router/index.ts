@@ -11,7 +11,6 @@ import Layout from "@/layout/Layout.vue";
 import mediaRoute from "./modules/media";
 import orderRoute from "./modules/order";
 import permissionRoute from "./modules/permission";
-import productRoute from "./modules/product";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -30,7 +29,6 @@ const routes: RouteRecordRaw[] = [
       mediaRoute,
       orderRoute,
       permissionRoute,
-      productRoute,
     ],
     meta: {
       title: "",

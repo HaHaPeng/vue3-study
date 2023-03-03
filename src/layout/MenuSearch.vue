@@ -1,9 +1,5 @@
 <template>
-  <el-input
-    placeholder="请输入内容"
-    prefix-icon="el-icon-search"
-    v-model="input2"
-  />
+  <el-input placeholder="请输入内容" prefix-icon="Search" v-model="input2" />
 </template>
 
 <script lang="ts" setup>

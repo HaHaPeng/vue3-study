@@ -2,7 +2,7 @@
   <el-dropdown>
     <span class="el-dropdown-link">
       {{ userInfo?.account }}
-      <i class="el-icon-arrow-down el-icon--right" />
+      <i class="ArrowDown el-icon--right" />
     </span>
     <template #dropdown>
       <el-dropdown-menu>
