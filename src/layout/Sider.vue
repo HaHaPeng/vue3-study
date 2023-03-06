@@ -1,61 +1,31 @@
 <template>
-  <el-menu
-    background-color="#304156"
+  <!-- background-color="#304156"
     text-color="#bcc0c5"
-    active-text-color="#2d8cf0"
+    active-text-color="#2d8cf0" -->
+  <el-menu
     class="el-menu-vertical-demo"
-    default-active="/order/list"
+    :default-active="defaultRoute"
     router
+    unique-opened
   >
-    <el-sub-menu index="/">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>product</span>
-      </template>
-      <el-menu-item index="/product/list">list</el-menu-item>
-      <el-menu-item index="/product/classify">classify</el-menu-item>
-      <el-menu-item index="/product/attribute">attribute</el-menu-item>
-      <el-menu-item index="/product/evaluate">evaluate</el-menu-item>
-    </el-sub-menu>
-    <el-sub-menu index="/order">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>order</span>
-      </template>
-      <el-menu-item index="/order/list">list</el-menu-item>
-      <el-menu-item index="/order/offline">offline</el-menu-item>
-    </el-sub-menu>
-    <el-sub-menu index="/permission">
-      <template #title>
-        <el-icon><location /></el-icon>
-        <span>permission</span>
-      </template>
-      <el-menu-item index="/permission/menu">menu</el-menu-item>
-      <el-menu-item index="/permission/role">role</el-menu-item>
-      <el-menu-item index="/permission/user">user</el-menu-item>
-    </el-sub-menu>
-    <el-menu-item index="/media">
-      <el-icon><icon-menu /></el-icon>
-      <span>media</span>
-    </el-menu-item>
-    <el-menu-item index="3" disabled>
-      <el-icon><document /></el-icon>
-      <span>Navigator Three</span>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <el-icon><setting /></el-icon>
-      <span>Navigator Four</span>
-    </el-menu-item>
+    <menu-item
+      :menu="routes"
+      :parent-path="'/'"
+      v-for="routes in permissionRoutes"
+      :key="routes.name"
+    />
   </el-menu>
 </template>
 
 <script lang="ts" setup>
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from "@element-plus/icons-vue";
+import { permissionRoutes } from "@/router/index";
+import MenuItem from "./components/MenuItem.vue";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+
+const route = useRoute();
+
+const defaultRoute = computed(() => route.fullPath);
 </script>
 
 <style lang="scss" scoped>

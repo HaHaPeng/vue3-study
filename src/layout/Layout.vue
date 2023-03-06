@@ -32,10 +32,10 @@ import AppHeader from "./Header.vue";
   align-items: center;
 }
 
-.el-aside {
-  background-color: #304156;
-  color: #333;
-}
+// .el-aside {
+//   background-color: #304156;
+//   color: #333;
+// }
 
 .el-main {
   background-color: #e9eef3;

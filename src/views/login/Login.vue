@@ -25,7 +25,7 @@
           </template>
         </el-input>
       </el-form-item>
-      <el-form-item prop="imgcode">
+      <!-- <el-form-item prop="imgcode">
         <div class="imgcode-wrap">
           <el-input v-model="user.imgcode" placeholder="请输入验证码">
             <template #prefix>
@@ -39,7 +39,7 @@
             :src="captchaSrc"
           />
         </div>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item>
         <el-button
           class="submit-button"
@@ -56,7 +56,7 @@
 
 <script lang="ts" setup>
 import { reactive, ref, onMounted } from "vue";
-import { getCaptcha, login } from "@/api/login";
+// import { getCaptcha, login } from "@/api/login";
 import { useLogin } from "@/stores/user";
 import { useRoute, useRouter } from "vue-router";
 import type { IElForm, IFormItemRule } from "@/types/element-plus";
@@ -70,14 +70,14 @@ const router = useRouter();
 const user = reactive({
   account: "admin",
   pwd: "123456",
-  imgcode: "",
+  // imgcode: "",
 });
 const form = ref<IElForm | null>(null);
 const loading = ref(false);
 const rules = ref<IFormItemRule>({
   account: [{ required: true, message: "请输入账号", trigger: "change" }],
   pwd: [{ required: true, message: "请输入密码", trigger: "change" }],
-  imgcode: [{ required: true, message: "请输入验证码", trigger: "change" }],
+  // imgcode: [{ required: true, message: "请输入验证码", trigger: "change" }],
 });
 // 提交表单
 const handleSubmit = async () => {
@@ -91,7 +91,15 @@ const handleSubmit = async () => {
   loading.value = true;
 
   // 请求登录
-  const data = await login(user).finally(() => (loading.value = false));
+  // const data = await login(user).finally(() => (loading.value = false));
+  const data = await Promise.resolve({
+    token: "123456",
+    user_info: {
+      account: "admin",
+      head_pic: "",
+      id: 16,
+    },
+  });
 
   // 存储登录用户信息
   const { setUserInfo, setToken } = useLogin();
@@ -109,17 +117,17 @@ const handleSubmit = async () => {
 /*
  * 验证码 *
  */
-const captchaSrc = ref("");
-const loadCaptcha = async () => {
-  const data = await getCaptcha();
-  captchaSrc.value = URL.createObjectURL(data);
-};
+// const captchaSrc = ref("");
+// const loadCaptcha = async () => {
+//   const data = await getCaptcha();
+//   captchaSrc.value = URL.createObjectURL(data);
+// };
 
 /*
  * 生命周期 *
  */
 onMounted(() => {
-  loadCaptcha();
+  // loadCaptcha();
 });
 </script>
 

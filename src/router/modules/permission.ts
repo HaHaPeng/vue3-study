@@ -1,9 +1,9 @@
-import { type RouteRecordRaw, RouterView } from "vue-router";
-
+import type { RouteRecordRaw } from "vue-router";
+import Layout from "@/layout/Layout.vue";
 const routes: RouteRecordRaw = {
-  path: "permission",
+  path: "/permission",
   name: "permission",
-  component: RouterView,
+  component: Layout,
   children: [
     {
       path: "menu",

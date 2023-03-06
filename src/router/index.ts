@@ -12,7 +12,7 @@ import mediaRoute from "./modules/media";
 import orderRoute from "./modules/order";
 import permissionRoute from "./modules/permission";
 
-const routes: RouteRecordRaw[] = [
+export const permissionRoutes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "layout",
@@ -22,18 +22,18 @@ const routes: RouteRecordRaw[] = [
         path: "",
         name: "home",
         component: () => import("@/views/home/Home.vue"),
-        meta: {
-          title: "首页",
-        },
       },
-      mediaRoute,
-      orderRoute,
-      permissionRoute,
     ],
     meta: {
-      title: "",
+      title: "首页",
     },
   },
+  mediaRoute,
+  orderRoute,
+  permissionRoute,
+];
+
+export const freeRoutes: RouteRecordRaw[] = [
   {
     path: "/login",
     name: "login",
@@ -43,6 +43,8 @@ const routes: RouteRecordRaw[] = [
     },
   },
 ];
+
+const routes: RouteRecordRaw[] = permissionRoutes.concat(freeRoutes);
 
 // const allowRoutes = ["login"];
 
